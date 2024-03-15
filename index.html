@@ -12,10 +12,23 @@
     <div class="container">
       <h1 class="mt-4">GCP - TextToSpeech 範例</h1>
 
-      <div class="my-4">
-        <!-- <label for="textarea" class="form-label">Example textarea</label> -->
+      <div class="my-2">
+        <label for="speak-text" class="form-label">想說的話</label>
         <textarea class="form-control" id="speak-text" rows="10" placeholder="請輸入文字"></textarea>
-
+      </div>
+      <div class="my-2">
+        <label for="form-select" class="form-label">選擇語音語系</label>
+        <select class="form-select mb-3" id="form-select">
+          <option value="zh-TW" selected>中文 (臺灣)</option>
+          <option value="en-US">English (US)</option>
+        </select>
+      </div>
+      <div class="my-2">
+        <label for="gender-select" class="form-label">選擇語音性別</label>
+        <select class="form-select mb-3" id="gender-select">
+          <option value="MALE">男性</option>
+          <option value="FEMALE" selected>女性</option>
+        </select>
       </div>
       <div class="d-grid gap-2">
         <button class="btn btn-primary" id="submit-btn" type="button">輸出</button>

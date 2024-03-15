@@ -12,14 +12,18 @@ $(document).ready(function() {
       return;
     }
 
+    // 讀取選擇的性別
+    const ssmlGender = $('#gender-select').val();
+    const languageCode = $('#language-select').val();
+
     // 請求參數
     const requestData = {
       "input": {
         "text": textToSynthesize
       },
       "voice": {
-        "languageCode": "zh-TW",
-        "ssmlGender": "MALE"
+        "languageCode": languageCode,
+        "ssmlGender": ssmlGender
       },
       "audioConfig": {
         "audioEncoding": "MP3"
