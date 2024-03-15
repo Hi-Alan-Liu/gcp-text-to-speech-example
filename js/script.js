@@ -13,8 +13,8 @@ $(document).ready(function() {
     }
 
     // 讀取選擇的性別
-    const ssmlGender = $('#gender-select').val();
     const languageCode = $('#language-select').val();
+    const voiceName = $('#voice-select').val();
 
     // 請求參數
     const requestData = {
@@ -23,7 +23,7 @@ $(document).ready(function() {
       },
       "voice": {
         "languageCode": languageCode,
-        "ssmlGender": ssmlGender
+        "name": voiceName
       },
       "audioConfig": {
         "audioEncoding": "MP3"
@@ -48,5 +48,39 @@ $(document).ready(function() {
         console.error("發生錯誤:", errorThrown);
       }
     });
+  });
+
+  $('#language-select').change(function() {
+    $('#voice-select').empty(); // 清除原有的選項
+    $('#voice-select').append('<option value="" selected disabled hidden>請選擇聲音</option>'); // 新增預設選項
+  
+    const languageCode = $(this).val();
+    let voiceOptions = "";
+  
+    if (languageCode === "zh-TW") {
+      voiceOptions += `
+        <option value="cmn-TW-Standard-A" selected>cmn-TW-Standard-A (女)</option>
+        <option value="cmn-TW-Standard-B">cmn-TW-Standard-B (男)</option>
+        <option value="cmn-TW-Standard-C">cmn-TW-Standard-C (男)</option>
+        <option value="cmn-TW-Wavenet-A">cmn-TW-Wavenet-A (女)</option>
+        <option value="cmn-TW-Wavenet-B">cmn-TW-Wavenet-B (男)</option>
+        <option value="cmn-TW-Wavenet-C">cmn-TW-Wavenet-C (男)</option>
+      `;
+    } else if (languageCode === "en-US") {
+      voiceOptions += `
+        <option value="en-US-Wavenet-A" selected>en-US-Wavenet-A (男)</option>
+        <option value="en-US-Wavenet-B">en-US-Wavenet-B (男)</option>
+        <option value="en-US-Wavenet-C">en-US-Wavenet-C (女)</option>
+        <option value="en-US-Wavenet-D">en-US-Wavenet-D (男)</option>
+        <option value="en-US-Wavenet-E">en-US-Wavenet-E (女)</option>
+        <option value="en-US-Wavenet-F">en-US-Wavenet-F (女)</option>
+        <option value="en-US-Wavenet-G">en-US-Wavenet-G (女)</option>
+        <option value="en-US-Wavenet-H">en-US-Wavenet-H (女)</option>
+        <option value="en-US-Wavenet-I">en-US-Wavenet-I (男)</option>
+        <option value="en-US-Wavenet-J">en-US-Wavenet-J (男)</option>
+      `;
+    }
+  
+    $('#voice-select').append(voiceOptions);
   });
 });
