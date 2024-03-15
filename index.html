@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Hi-Alan-Liu/gcp-text-to-speech-example/main/images/favicon.ico">
+    <meta property="og:title" content="GCP - TextToSpeech 範例">
+    <meta property="og:description" content="這是一個 TTS 文字轉語音的範例工具，歡迎各位使用">
     <title>GCP - TextToSpeech 範例</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -33,6 +36,10 @@
           <option value="cmn-TW-Wavenet-B">cmn-TW-Wavenet-B (男)</option>
           <option value="cmn-TW-Wavenet-C">cmn-TW-Wavenet-C (男)</option>
         </select>
+      </div>
+      <div class="my-2">
+        <label for="api-key" class="form-label">API 金鑰</label>
+        <input type="text" class="form-control" id="api-key" placeholder="請輸入 API 金鑰">
       </div>
       <div class="d-grid gap-2">
         <button class="btn btn-primary" id="submit-btn" type="button">輸出</button>

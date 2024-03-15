@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#submit-btn').click(function() {
     // Google Cloud Text-to-Speech API 的網址
-    const apiUrl = "https://texttospeech.googleapis.com/v1/text:synthesize?key=AIzaSyDlBrx9262AGv_FPeHPIfy5CCOzwRoTT0E";
+    const apiUrl = "https://texttospeech.googleapis.com/v1/text:synthesize";
 
     // 讀取要合成的文字
     const textToSynthesize = $('#speak-text').val();
@@ -15,6 +15,7 @@ $(document).ready(function() {
     // 讀取選擇的性別
     const languageCode = $('#language-select').val();
     const voiceName = $('#voice-select').val();
+    const apiKey = $('#api-key').val();
 
     // 請求參數
     const requestData = {
@@ -32,7 +33,7 @@ $(document).ready(function() {
 
     // 發送 AJAX 請求
     $.ajax({
-      url: apiUrl,
+      url: `${apiUrl}?key=${apiKey}`,
       type: "POST",
       contentType: "application/json",
       data: JSON.stringify(requestData),
